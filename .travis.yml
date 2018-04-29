@@ -1,0 +1,16 @@
+language: csharp
+mono: none
+dotnet: 2.1.105
+script:
+  - dotnet restore
+  - dotnet build
+before_deploy:
+- tar -zcf ${TRAVIS_BUILD_DIR}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz bin/Release/netcoreapp2.0
+deploy:
+  provider: releases
+  api_key:
+    secure: AzgGjIyHyuJNlkF3L2xy1a5sUoS9x6O/gIUBdYMiphS4vVpces1d7EXxnuWwPYpYxxEyVFrkSEziDeY1mijwgHLIkWgjf7CBZ1bEfFWhssPW0/OE/hRv5R+Z5hj3tgo5YAr18HT2pu0PauOQtv0m36XxvMooJd6/8gLU73S4vmLRJibd6vYPVJXWtUOgifvxy3/TMD9mdTEVkcrwQ4vGTJO0L2CUIXz0wpAe18r2C3dqlOjHSQ6Opy/b3OrJt8PLTjf07qLcZtZGikLOCfNLtKrsGg9mcmAL0OpTldZ25NJRcZzIFK19Hi80izxYnumfhr96BnAJlVcGnf8y15E9n/+SZjQS9Vi0jerFFvNtPB5iN5mBxRBpimcIEzvxf6doFEzzGIjARl82rlfk+4C+elaM758obVeZdmwytNox4WvKQ/Dn4u1FNFwaZykF9yBAJwmVL+sDk6GLzjLaJb8kGX48u38DsM0nPgQNR2NDA+kB9JIr6fgrays4qX8zzVCrgNhz/dOykihW2EwiOjwTfaHhL1yuOwUxV2QZnY0qrIxq3r2ax1XcfiAHHtHTq0TebOI/d8ntcegvzl03Xqa0vpQPsBuY0to5J22y1GbIst1pR51WC9TiMUvucIMs92uZmAlG8UqXaSfr/94FRUYM3Xu7n0+bn+KjvAcuKHDYeb0=
+  file: ${TRAVIS_BUILD_DIR}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
