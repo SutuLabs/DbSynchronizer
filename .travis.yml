@@ -3,9 +3,9 @@ mono: none
 dotnet: 2.1.105
 script:
 - dotnet restore
-- dotnet build --configuration Release
+- dotnet publish --configuration Release
 before_deploy:
-- tar -zcf ${TRAVIS_BUILD_DIR}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz bin/Release/netcoreapp2.0
+- tar -zcf ${TRAVIS_BUILD_DIR}-${TRAVIS_TAG}-${TRAVIS_BUILD_NUMBER}.tar.gz --directory=bin/Release/netcoreapp2.0/publish .
 deploy:
   provider: releases
   api_key:
