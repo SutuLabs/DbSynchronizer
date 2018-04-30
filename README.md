@@ -2,6 +2,7 @@
 <p align="center"><strong>Database Synchronizer for UChainDb</strong></p>
 
 [![Build Status](https://travis-ci.org/uchaindb/DbSynchronizer.svg?branch=master)](https://travis-ci.org/uchaindb/DbSynchronizer)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fuchaindb%2FDbSynchronizer.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fuchaindb%2FDbSynchronizer?ref=badge_shield)
 
 Db Synchronizer can synchronize data from SQL Server to [UChainDb](https://www.uchaindb.com)
 
